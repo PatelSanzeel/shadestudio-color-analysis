@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>ShadeStudio</title>
+    <link rel="stylesheet"
+          href="css/style.css">
+</head>
+<body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <div class="logo">
+            Shade<span>Studio</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#mood">Mood</a>
+            <a href="#discover">Discover</a>
+            <a href="#palette">My Palette</a>
+        </nav>
+        <button
+            class="theme-btn"
+            onclick="scrollToMood()">
+            ✦ Change Mood
+        </button>
+    </header>
+    <!-- ================= HERO ================= -->
+    <section
+        id="home"
+        class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">
+                YOUR COLORS • YOUR STYLE
+            </p>
+            <h1>
+                Discover the colors
+                <span>made for you.</span>
+            </h1>
+            <p class="hero-description">
+                Upload a natural-light photo and discover
+                colors that complement your natural tone,
+                personality and style.
+            </p>
+            <button
+                class="primary-btn"
+                onclick="scrollToUpload()">
+                ✦ Discover My Palette
+            </button>
+        </div>
+        <!-- Decorative visual -->
+        <div class="hero-visual">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <div class="palette-card">
+                <p>Your Color Story</p>
+                <div class="mini-palette">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h3>
+                    Made just for you.
+                </h3>
+            </div>
+        </div>
+    </section>
+    <!-- ================= MOOD ================= -->
+    <section
+        id="mood"
+        class="mood-section">
+        <div class="section-heading">
+            <p class="eyebrow">
+                MAKE IT YOURS
+            </p>
+            <h2>
+                Choose your mood.
+            </h2>
+            <p>
+                Pick a color and change the personality
+                of your ShadeStudio experience.
+            </p>
+        </div>
+        <div class="mood-grid">
+            <!-- Blush -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('blush')">
+                <div class="mood-color blush"></div>
+                <h3>Blush</h3>
+                <p>
+                    Soft & Romantic
+                </p>
+            </div>
+            <!-- Glow -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('glow')">
+                <div class="mood-color glow"></div>
+                <h3>Glow</h3>
+                <p>
+                    Bright & Energetic
+                </p>
+            </div>
+            <!-- Sage -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('sage')">
+                <div class="mood-color sage"></div>
+                <h3>Sage</h3>
+                <p>
+                    Calm & Natural
+                </p>
+            </div>
+            <!-- Ocean -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('ocean')">
+                <div class="mood-color ocean"></div>
+                <h3>Ocean</h3>
+                <p>
+                    Fresh & Confident
+                </p>
+            </div>
+            <!-- Berry -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('berry')">
+                <div class="mood-color berry"></div>
+                <h3>Berry</h3>
+                <p>
+                    Bold & Elegant
+                </p>
+            </div>
+            <!-- Midnight -->
+            <div
+                class="mood-card"
+                onclick="changeTheme('midnight')">
+                <div class="mood-color midnight"></div>
+                <h3>Midnight</h3>
+                <p>
+                    Mysterious & Luxe
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- ================= PHOTO UPLOAD ================= -->
+    <section
+        id="discover"
+        class="upload-section">
+        <div class="section-heading">
+            <p class="eyebrow">
+                STEP 01 • PHOTO
+            </p>
+            <h2>
+                Let's find your colors.
+            </h2>
+            <p>
+                Upload a clear photo taken in
+                natural daylight.
+            </p>
+        </div>
+        <div class="upload-box">
+            <div class="upload-icon">
+                ✦
+            </div>
+            <h3>
+                Upload your photo
+            </h3>
+            <p>
+                No filters • Natural light • Clear face
+            </p>
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                onchange="previewPhoto(event)">
+            <label
+                for="photoInput"
+                class="upload-btn">
+                Choose Photo
+            </label>
+            <!-- Image preview -->
+            <div
+                id="preview-container">
+                <img
+                    id="photoPreview"
+                    alt="Uploaded photo">
+            </div>
+        </div>
+    </section>
+    <!-- ================= ANALYSIS ================= -->
+    <section
+        id="analysis"
+        class="analysis-section">
+        <div class="section-heading">
+            <p class="eyebrow">
+                STEP 02 • ANALYSIS
+            </p>
+            <h2>
+                Your color analysis.
+            </h2>
+            <p>
+                Your personalized analysis will
+                appear here.
+            </p>
+        </div>
+        <div class="analysis-card">
+            <div class="analysis-item">
+                <span>
+                    Skin Tone
+                </span>
+                <strong id="skinTone">
+                    —
+                </strong>
+            </div>
+            <div class="analysis-item">
+                <span>
+                    Undertone
+                </span>
+                <strong id="undertone">
+                    —
+                </strong>
+            </div>
+            <div class="analysis-item">
+                <span>
+                    Color Family
+                </span>
+                <strong id="colorFamily">
+                    —
+                </strong>
+            </div>
+        </div>
+    </section>
+    <!-- ================= PALETTE ================= -->
+    <section
+        id="palette"
+        class="palette-section">
+        <div class="section-heading">
+            <p class="eyebrow">
+                STEP 03 • YOUR COLORS
+            </p>
+            <h2>
+                Your personalized palette.
+            </h2>
+            <p>
+                Colors will be ranked according
+                to compatibility.
+            </p>
+        </div>
+        <!-- ================= COLOR EXPLORER ================= -->
+
+<div class="color-explorer">
+
+    <h3>🔍 Explore Colors</h3>
+
+    <p>
+        Search our color collection and discover
+        shades that match your style.
+    </p>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="colorSearch"
+            placeholder="Search colors...">
+
+        <button
+            onclick="searchColors()">
+
+            Search
+
+        </button>
+
+    </div>
+
+
+    <div class="color-filters">
+
+        <button
+            onclick="showAllColors()">
+
+            All
+
+        </button>
+
+        <button
+            onclick="filterColors('Warm')">
+
+            Warm
+
+        </button>
+
+        <button
+            onclick="filterColors('Cool')">
+
+            Cool
+
+        </button>
+
+        <button
+            onclick="filterColors('Neutral')">
+
+            Neutral
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="searchResults"
+        class="search-results">
+
+    </div>
+
+</div>
+        <div
+            id="colorResults"
+            class="color-results">
+            <div class="empty-palette">
+                <div>
+                    ✨
+                </div>
+                <h3>
+                    Your palette is waiting.
+                </h3>
+                <p>
+                    Upload your photo to discover
+                    your colors.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="logo">
+            Shade<span>Studio</span>
+        </div>
+        <p>
+            Find the colors that feel like you.
+        </p>
+        <small>
+            © 2026 ShadeStudio
+        </small>
+    </footer>
+    <script
+        src="js/imageAnalysis.js">
+    </script>
+     <script
+        src="js/colorDatabase.js">
+    </script>
+    <script
+        src="js/script.js">
+    </script>
+</body>
+</html>
